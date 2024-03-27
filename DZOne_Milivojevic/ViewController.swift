@@ -22,10 +22,10 @@ class ViewController: UIViewController {
     let flow = UILabel()
     
     private lazy var btnAction = UIAction { action in
-        
         guard let sender = action.sender as? UIButton else {
             return
         }
+        
         switch sender.tag {
         case 1:
             self.name.text = "Stefan"
@@ -40,9 +40,6 @@ class ViewController: UIViewController {
             self.surname.text = "Error"
             self.flow.text = "Error"
         }
-        
-        
-        
     }
     
     
