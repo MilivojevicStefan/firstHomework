@@ -14,12 +14,20 @@ class ViewController: UIViewController {
     
     let btn = UIButton()
     let secondBtn = UIButton()
-    let nameLabel = UILabel()
-    let surnameLabel = UILabel()
-    let flowLabel = UILabel()
-    let name = UILabel()
-    let surname = UILabel()
-    let flow = UILabel()
+    
+    lazy var flowLabel = createLabel(text: "Номер потока:", color: blackColor, frame: CGRect(x:20, y: 250, width: 118, height: 16))
+    
+    lazy var surnameLabel = createLabel(text: "Фамилия:", color: blackColor, frame: CGRect(x:20, y: 230, width: 78, height: 16))
+    
+    lazy var nameLabel = createLabel(text: "Имя:", color: blackColor, frame: CGRect(x:20, y: 210, width: 39, height: 16))
+    
+    lazy var flow = createLabel(text: "iOS 6", color: redColor, frame: CGRect(x: 142, y: 250, width: 100, height: 16))
+    
+    lazy var surname = createLabel(text: "Surname", color: redColor, frame: CGRect(x: 102, y: 230, width: 100, height: 16))
+
+    lazy var name = createLabel(text: "Name", color: redColor, frame: CGRect(x: 63, y: 210, width: 100, height: 16))
+    
+    
     
     private lazy var btnAction = UIAction { action in
         guard let sender = action.sender as? UIButton else {
@@ -60,35 +68,6 @@ class ViewController: UIViewController {
         btn.tag = 1
         btn.addAction(btnAction, for: .touchUpInside)
         
-        flowLabel.text = "Номер потока:"
-        flowLabel.textColor = blackColor
-        flowLabel.font = .boldSystemFont(ofSize: 16)
-        flowLabel.frame = CGRect(x:20, y: 250, width: 118, height: 16)
-        
-        surnameLabel.text = "Фамилия:"
-        surnameLabel.textColor = blackColor
-        surnameLabel.font = .boldSystemFont(ofSize: 16)
-        surnameLabel.frame = CGRect(x:20, y: 230, width: 78, height: 16)
-        
-        nameLabel.text = "Имя:"
-        nameLabel.textColor = blackColor
-        nameLabel.font = .boldSystemFont(ofSize: 16)
-        nameLabel.frame = CGRect(x:20, y: 210, width: 39, height: 16)
-        
-        flow.text = "iOS 6"
-        flow.textColor = redColor
-        flow.font = .boldSystemFont(ofSize: 16)
-        flow.frame = CGRect(x: 142, y: 250, width: 100, height: 16)
-        
-        surname.text = "Surname"
-        surname.textColor = redColor
-        surname.font = .boldSystemFont(ofSize: 16)
-        surname.frame = CGRect(x: 102, y: 230, width: 100, height: 16)
-        
-        name.text = "Name"
-        name.textColor = redColor
-        name.font = .boldSystemFont(ofSize: 16)
-        name.frame = CGRect(x: 63, y: 210, width: 100, height: 16)
         
         view.addSubview(secondBtn)
         view.addSubview(btn)
@@ -99,6 +78,17 @@ class ViewController: UIViewController {
         view.addSubview(surname)
         view.addSubview(name)
         
+    }
+    
+    func createLabel(text: String, color: UIColor, frame: CGRect) -> UILabel {
+        let label = UILabel()
+        
+        label.text = text
+        label.textColor = color
+        label.font = .boldSystemFont(ofSize: 16)
+        label.frame = frame
+        
+        return label
     }
 
 
